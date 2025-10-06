@@ -147,7 +147,7 @@ class _RegistrationState extends State<Registration> {
                         ),
                       ),
                     ),
-                  ),
+                  ) ,
                 ),
                 SizedBox(height: 24),
 
@@ -172,7 +172,6 @@ class _RegistrationState extends State<Registration> {
                     ),
                   ),
                 ),
-                SizedBox(height: 32),
               ],
             ),
           ),
