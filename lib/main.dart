@@ -136,6 +136,7 @@ class SplashScreen2 extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12.0),
                         ),
+                        elevation: 0,
                         padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 109.0),
                         textStyle: TextStyle(
                           fontFamily: "Poppins",
