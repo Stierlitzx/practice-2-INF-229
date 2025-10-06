@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:practice_2/registration.dart';
+import 'package:practice_2/login.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -175,7 +176,7 @@ class SplashScreen2 extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const Registration())
+                        MaterialPageRoute(builder: (context) => const Login())
                       );
                     }, 
                     child: const Text("Already Have an Account"),
