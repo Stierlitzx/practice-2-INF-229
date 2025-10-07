@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:practice_2/Reset_password';
 import 'package:practice_2/Verification.dart';
 import 'package:practice_2/registration.dart';
 
@@ -92,7 +93,12 @@ class _LoginState extends State<Login> {
                           fontSize: 14.0,
                         )
                       ),
-                      onPressed: null,
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const ResetPassword())
+                          );
+                      },
                       child: const Text(
                         "Forgot password?"
                       ),
