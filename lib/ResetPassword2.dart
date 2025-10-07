@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:practice_2/Registration.dart';
-import 'package:practice_2/ResetPassword2.dart';
 
-class ResetPassword extends StatefulWidget {
-  const ResetPassword({super.key});
+class ResetPassword2 extends StatefulWidget {
+  const ResetPassword2({super.key});
 
   @override
-  State<ResetPassword> createState() => _ResetPasswordState();
+  State<ResetPassword2> createState() => _ResetPassword2State();
 }
 
-class _ResetPasswordState extends State<ResetPassword> {
-  final TextEditingController emailController = TextEditingController();
+class _ResetPassword2State extends State<ResetPassword2> {
+  final TextEditingController newPasswordControlled = TextEditingController();
+  final TextEditingController confirmPasswordControlled = TextEditingController();
   final FocusNode _focusNode = FocusNode();
   bool _isFocused = false;
+  bool showPassword = false;
+  bool showConfirmPassword = false;
 
   @override
   void initState() {
@@ -26,10 +28,12 @@ class _ResetPasswordState extends State<ResetPassword> {
 
   @override
   void dispose() {
-    emailController.dispose();
+    newPasswordControlled.dispose();
+    confirmPasswordControlled.dispose();
     _focusNode.dispose();
     super.dispose();
   }
+  
 
   @override
   Widget build(BuildContext context) {
@@ -69,20 +73,55 @@ class _ResetPasswordState extends State<ResetPassword> {
                     ),
                   ],
                 ),
-                SizedBox(height: 42.0),
+                SizedBox(height: 24.0),
+
+                Text(
+                  "Please fill in the field below to reset your \ncurrent password.",
+                  style: TextStyle(
+                    fontFamily: "Poppins",
+                    fontWeight: FontWeight.w400,
+                    fontSize: 14.0,
+                    color: Color(0xff697B7A),
+                  ),
+                ),
+                SizedBox(height: 32.0,),
                 
-                CustomTextField(label: "Email", controller: emailController, iconPath: "assets/message.png", hintText: "Email Address", keyboardType: TextInputType.emailAddress),
+                CustomTextField(
+                  label: "New Password", 
+                  controller: newPasswordControlled, 
+                  iconPath: "assets/lock.png", 
+                  hintText: "New Password",
+                  isPassword: true,
+                  showPassword: showPassword,
+                  onTogglePassword: () {
+                    setState(() {
+                      showPassword = !showPassword;
+                    });
+                  },
+                ),
                 SizedBox(height: 32.0),
-                
+
+                CustomTextField(
+                  label: "Confirm Password", 
+                  controller: confirmPasswordControlled, 
+                  iconPath: "assets/lock.png",
+                  hintText: "Confirm Password",
+                  isPassword: true,
+                  showPassword: showPassword,
+                  onTogglePassword: () {
+                    setState(() {
+                      showPassword = !showPassword;
+                    });
+                  },
+                ),
+                SizedBox(height: 42.0,),
+
                 SizedBox(
                   width: double.infinity,
                   height: 56,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
-                        context, 
-                        MaterialPageRoute(builder: (context) => ResetPassword2())
-                        );
+                      print("Comfirm Reset Password Button pressed");
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Color(0xFFF2C94C),
@@ -92,7 +131,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                       elevation: 0,
                     ),
                     child: Text(
-                      'Send Me a New Password',
+                      'Confirm Reset Password',
                       style: TextStyle(
                         fontFamily: "Poppins",
                         color: Colors.white,
