@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:practice_2/Reset_password';
 import 'package:practice_2/Verification.dart';
 import 'package:practice_2/registration.dart';
+import 'package:practice_2/ResetPassword.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -96,8 +96,8 @@ class _LoginState extends State<Login> {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => const ResetPassword())
-                          );
+                          MaterialPageRoute(builder: (context) => const ResetPassword()),
+                        );
                       },
                       child: const Text(
                         "Forgot password?"
