@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:practice_2/Verification.dart';
 import 'package:practice_2/registration.dart';
 
 class Login extends StatefulWidget {
@@ -106,7 +107,7 @@ class _LoginState extends State<Login> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const Login())
+                        MaterialPageRoute(builder: (context) => const Verification(email: "nursultan1234@gmail.com",))
                       );
                     },
                     style: ElevatedButton.styleFrom(
